@@ -6,9 +6,9 @@ services:
       - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: senha123
-      MYSQL_USER: product_user
-      MYSQL_PASSWORD: product_user_password
-      MYSQL_DATABASE: product
+      MYSQL_USER: usuario_ecommerce
+      MYSQL_PASSWORD: senha_ecommerce
+      MYSQL_DATABASE: ecommerce
 
   cadastros-backend:
       build:
@@ -19,9 +19,9 @@ services:
       depends_on:
         - mysql
       environment:
-        SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/product
-        SPRING_DATASOURCE_USERNAME: product_user
-        SPRING_DATASOURCE_PASSWORD: product_user_password
+        SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/ecommerce
+        SPRING_DATASOURCE_USERNAME: usuario_ecommerce
+        SPRING_DATASOURCE_PASSWORD: senha_ecommerce
 
   cadastros-frontend:
       build:
@@ -29,3 +29,22 @@ services:
         dockerfile: Dockerfile
       ports:
         - "3000:80"
+
+  produtos-backend:
+      build:
+        context: ./produtos/backend
+        dockerfile: Dockerfile
+      ports:
+        - "8081:8081"
+      depends_on:
+        - mysql
+      environment:
+        SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/ecommerce
+        SPRING_DATASOURCE_USERNAME: usuario_ecommerce
+        SPRING_DATASOURCE_PASSWORD: senha_ecommerce    
+  produtos-frontend:
+      build:
+        context: ./produtos/frontend
+        dockerfile: Dockerfile
+      ports:
+        - "3010:81"
