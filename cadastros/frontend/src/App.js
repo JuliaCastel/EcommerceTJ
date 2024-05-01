@@ -1,31 +1,31 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import CreateProductForm from './components/CreateProductForm'
+import CreateProdutoForm from './components/CreateProdutoForm'
 import NavBar from "./components/NavBar";
-import ProductList from "./components/ProductList";
-import Products from "./components/Products";
-import { ProductListProvider } from "./context/ProductContext";
-import ProductDetail from "./components/ProductDetail";
-import UpdateProductForm from './components/UpdateProductForm';
+import ProdutoList from "./components/ProdutoList";
+import Produtos from "./components/Produtos";
+import { ProdutoListProvider } from "./context/ProdutoContext";
+import ProdutoDetail from "./components/ProdutoDetail";
+import UpdateProdutoForm from './components/UpdateProdutoForm';
 
 function App() {
   return (
     <Router>
-      <ProductListProvider>
+      <ProdutoListProvider>
         <div className="container">
           <NavBar />
           <hr />
           <Routes>
-            <Route path="/new" element={<CreateProductForm />} />
-            <Route path="/" element={<Products />}>
-              <Route index element={<ProductList />} />
-              <Route path=":id" element={<ProductDetail />} />
-              <Route path=":id/edit" element={<UpdateProductForm />} />
+            <Route path="/new" element={<CreateProdutoForm />} />
+            <Route path="/" element={<Produtos />}>
+              <Route index element={<ProdutoList />} />
+              <Route path=":id" element={<ProdutoDetail />} />
+              <Route path=":id/edit" element={<UpdateProdutoForm />} />
             </Route>
           </Routes>
         </div>
-      </ProductListProvider>
+      </ProdutoListProvider>
     </Router>
   );
 }

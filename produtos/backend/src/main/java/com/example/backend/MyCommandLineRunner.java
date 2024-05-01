@@ -1,7 +1,7 @@
 package com.example.backend;
 
-import com.example.backend.model.Product;
-import com.example.backend.service.ProductService;
+import com.example.backend.model.Produto;
+import com.example.backend.service.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -10,20 +10,20 @@ import org.springframework.stereotype.Component;
 public class MyCommandLineRunner implements CommandLineRunner {
 
     @Autowired
-    private ProductService productService;
+    private ProdutoService produtoService;
 
     @Override
     public void run(String... args) throws Exception {
-        Product product = new Product();
-        product.setTitle("iPhone");
-        product.setPrice(1200D);
-        product.setQuantity(99);
-        productService.save(product);
+        Produto produto = new Produto();
+        produto.setTitle("iPhone");
+        produto.setPrice(1200D);
+        produto.setQuantity(99);
+        produtoService.save(produto);
 
-        Product product2 = new Product();
-        product2.setTitle("Blackberry");
-        product2.setPrice(1100D);
-        product2.setQuantity(55);
-        productService.save(product2);
+        Produto produto2 = new Produto();
+        produto2.setTitle("Blackberry");
+        produto2.setPrice(1100D);
+        produto2.setQuantity(55);
+        produtoService.save(produto2);
     }
 }

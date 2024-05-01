@@ -2,9 +2,9 @@ import axios from "axios";
 
 const baseURL = process.env.REACT_APP_API_BASE_URL;
 
-const apiUrl = `${baseURL}/api/products`;
+const apiUrl = `${baseURL}/api/produtos`;
 
-export const getProducts = async () => {
+export const getProdutos = async () => {
   try {
     const response = await axios.get(apiUrl);
     return response.data;
@@ -13,16 +13,16 @@ export const getProducts = async () => {
   }
 }
 
-export const createProduct = async (product) => {
+export const createProduto = async (produto) => {
   try {
-    const response = await axios.post(apiUrl, product);
+    const response = await axios.post(apiUrl, produto);
     return response.data;
   } catch (error) {
     throw error;
   }
 }
 
-export const getProductById = async (id) => {
+export const getProdutoById = async (id) => {
   try {
     const response = await axios.get(`${apiUrl}/${id}`);
     return response.data;
@@ -31,16 +31,16 @@ export const getProductById = async (id) => {
   }
 }
 
-export const updateProductById = async (id, product) => {
+export const updateProdutoById = async (id, produto) => {
   try {
-    const response = await axios.put(`${apiUrl}/${id}`, product);
+    const response = await axios.put(`${apiUrl}/${id}`, produto);
     return response.data;
   } catch (error) {
     throw error;
   }
 }
 
-export const deleteProductById = async (id) => {
+export const deleteProdutoById = async (id) => {
   try {
     const response = await axios.delete(`${apiUrl}/${id}`);
     return response.data;

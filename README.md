@@ -1,2 +1,2 @@
-### React Product App using Spring Boot as the backend
-![alt text](react-product-app.png)
+### React Produto App using Spring Boot as the backend
+![alt text](react-produto-app.png)

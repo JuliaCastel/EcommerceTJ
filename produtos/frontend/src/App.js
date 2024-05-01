@@ -1,16 +1,20 @@
-import logo from "./logo.svg";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import "./App.css";
-import Catalogo from "./pages/Catalogo";
 import NavBar from "./components/NavBar";
+import Cesta from "./pages/Cesta";
+import Catalogo from './pages/Catalogo';
 
 function App() {
   return (
-    <div className="App">
-        <NavBar />
-      {/* <header className="App-header">
-      </header> */}
-      <Catalogo />
-    </div>
+    <Router>
+      <NavBar />
+      <div className="container">
+        <Routes>
+          <Route path="/" element={<Catalogo />}></Route>
+          <Route path="/cesta" element={<Cesta />}></Route>
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
